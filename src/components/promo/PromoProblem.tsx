@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import { X, AlertTriangle } from "lucide-react";
 
 const problems = [
-  { title: "কোথা থেকে শুরু করবেন বুঝতে পারছেন না", desc: "অনেক ভিডিও দেখেছেন, কিন্তু গুছিয়ে কিছু শিখতে পারছেন না।" },
-  { title: "অনলাইনে বিক্রির পদ্ধতি জানেন না", desc: "প্রোডাক্ট বানালেও কাস্টমার পাচ্ছেন না, আয় হচ্ছে না।" },
-  { title: "মূলধন কম, ভয়ও আছে", desc: "বড় investment ছাড়া শুরু করার সঠিক রাস্তা খুঁজে পাচ্ছেন না।" },
-  { title: "Confidence-ই নেই", desc: "নিজের কাজ মানুষকে দেখাতে লজ্জা ও দ্বিধা কাজ করে।" },
+  { title: "English বলতে ভয় লাগে", desc: "মানুষের সামনে কথা বলতে গেলে nervous হয়ে যান, mind blank হয়ে যায়।" },
+  { title: "Sentence আটকে যায়", desc: "শুরু করেন কিন্তু মাঝপথে শব্দ খুঁজে পান না, কথা থেমে যায়।" },
+  { title: "Vocabulary মনে থাকে না", desc: "শত শত word মুখস্থ করেন, কিন্তু কথা বলার সময় কিছুই মনে আসে না।" },
+  { title: "Confidence একদম নেই", desc: "ভুল হলে কী বলবে — সেই ভয়ে চুপ থাকেন, opportunity miss হয়।" },
+  { title: "Grammar জানলেও বলতে পারেন না", desc: "Reading-Writing ভালো, কিন্তু Speaking এ এসে সব gone।" },
+  { title: "Pronunciation নিয়ে দ্বিধা", desc: "Word বললেই মনে হয় হাসবে — তাই বলা থেকে নিজেকে আটকে রাখেন।" },
 ];
 
 export default function PromoProblem() {
@@ -20,10 +22,10 @@ export default function PromoProblem() {
             আপনি কি এই সমস্যাগুলোতে আটকে আছেন?
           </h2>
           <p className="mt-3 text-white/60 text-sm md:text-base">
-            ৯৫% নতুন handicraft learner এই একই সমস্যায় ভুগছেন — আপনি একা নন।
+            ৯৫% বাংলাদেশী English learner এই একই সমস্যায় ভুগছেন — আপনি একা নন।
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {problems.map((p, i) => (
             <motion.div
               key={i}

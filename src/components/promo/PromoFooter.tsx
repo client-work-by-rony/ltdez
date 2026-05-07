@@ -14,7 +14,7 @@ export default function PromoFooter() {
             </div>
           </div>
           <p className="mt-4 text-sm text-white/60">
-            Bangla Friendly · Beginner Friendly · Result Focused — হাতের কাজ শিখে আয়ের পথ।
+            Fear To Fluent — Bangla Friendly English Speaking Fluency Program. শূন্য থেকে confident speaker।
           </p>
         </div>
 

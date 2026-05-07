@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { Check, Zap, Clock, Lock, ShieldCheck } from "lucide-react";
 
 const includes = [
-  "Complete Handicraft Roadmap (৯০ দিন)",
-  "১০০+ Design ও Pattern Library",
-  "Live Zoom ক্লাস (Weekly)",
-  "Daily Practice Tasks",
-  "অনলাইন সেলিং Masterclass",
+  "Complete ৬০-Day Speaking Roadmap",
+  "৫০০+ Vocabulary ও Phrase Library",
+  "Pronunciation Drill Pack",
+  "Weekly Live Zoom Class",
+  "Daily Speaking Tasks",
   "WhatsApp Group Support",
   "Lifetime Recording Access",
-  "Confidence Building Mindset Training",
+  "Confidence Mindset Training",
 ];
 
 export default function PromoPricing() {
@@ -34,7 +34,7 @@ export default function PromoPricing() {
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-amber-400 text-white text-[11px] font-bold">
               <Zap className="h-3 w-3" /> MOST POPULAR
             </span>
-            <h3 className="mt-4 text-xl font-bold">LTDEZ — Full Program</h3>
+            <h3 className="mt-4 text-xl font-bold">Fear To Fluent — Full Program</h3>
 
             <div className="mt-6">
               <div className="text-muted-foreground line-through text-lg">৳ ২,৯৯০</div>
