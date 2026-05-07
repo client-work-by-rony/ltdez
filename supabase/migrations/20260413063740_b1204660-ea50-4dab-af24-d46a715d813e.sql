@@ -1,0 +1,1 @@
+ALTER TABLE public.profiles REPLICA IDENTITY USING INDEX profiles_user_id_key;
