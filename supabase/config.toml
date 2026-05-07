@@ -1,1 +1,16 @@
 project_id = "xrmgiyjyybklcrbptwka"
+
+[functions.shurjopay-initiate]
+verify_jwt = false
+
+[functions.shurjopay-callback]
+verify_jwt = false
+
+[functions.phone-signup]
+verify_jwt = false
+
+[functions.admin-approve-payment]
+verify_jwt = true
+
+[functions.admin-reset-password]
+verify_jwt = true
