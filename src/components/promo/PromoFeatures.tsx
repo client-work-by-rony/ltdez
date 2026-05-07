@@ -8,7 +8,7 @@ const features = [
     desc: "প্রতিদিন structured speaking task — অভ্যাসই key।",
     highlight: "60+ Days Practice",
     color: "from-orange-500 to-red-500",
-    span: "md:col-span-2",
+    span: "",
   },
   {
     icon: BookOpen,
@@ -32,7 +32,7 @@ const features = [
     desc: "Weekly live session — instructor এর সাথে real-time practice। Recording সবসময় available।",
     highlight: "Weekly Live",
     color: "from-green-500 to-emerald-500",
-    span: "md:col-span-2",
+    span: "",
   },
   {
     icon: MessageCircle,
@@ -56,7 +56,7 @@ const features = [
     desc: "Partner pairing ও role-play — actual conversation এ fluency।",
     highlight: "Real Practice",
     color: "from-rose-500 to-pink-500",
-    span: "md:col-span-2",
+    span: "",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function PromoFeatures() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {features.map((f, i) => (
             <motion.div
               key={i}
