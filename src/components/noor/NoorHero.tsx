@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Star, Users, Infinity as InfIcon } from "lucide-react";
-import logo from "@/assets/noor-logo.png";
+import logo from "@/assets/ltdez-logo.png";
 
 export default function NoorHero() {
   return (

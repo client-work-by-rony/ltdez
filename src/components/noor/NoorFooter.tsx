@@ -1,5 +1,5 @@
 import { ShieldCheck } from "lucide-react";
-import logo from "@/assets/noor-logo.png";
+import logo from "@/assets/ltdez-logo.png";
 
 const methods = [
   { name: "bKash", color: "bg-pink-600" },
@@ -40,10 +40,10 @@ export default function NoorFooter() {
       <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <img src={logo} alt="Noor" className="h-9 w-auto" />
-          <span className="font-extrabold">Noor Handicraft Academy</span>
+          <span className="font-extrabold">LTDEZ</span>
         </div>
         <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Noor Handicraft Academy. All rights reserved.
+          © {new Date().getFullYear()} LTDEZ. All rights reserved.
         </p>
       </div>
     </footer>

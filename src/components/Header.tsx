@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { LogIn, LogOut, Crown, Menu, X } from "lucide-react";
-import logo from "@/assets/noor-logo.png";
+import logo from "@/assets/ltdez-logo.png";
 import { useAuth } from "@/hooks/useAuth";
 import { useMembership } from "@/hooks/useMembership";
 
@@ -73,7 +73,7 @@ const Header = () => {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-8">
         {/* Logo */}
         <Link to="/" className="shrink-0">
-          <img src={logo} alt="Noor Handicraft Academy" className="h-12 md:h-14" />
+          <img src={logo} alt="LTDEZ" className="h-12 md:h-14" />
         </Link>
 
         {/* Nav Links - desktop */}

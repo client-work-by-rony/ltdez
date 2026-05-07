@@ -8,7 +8,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import { Loader2, UserPlus, ArrowRight, Mail, Phone, User, Lock, Eye, EyeOff, Dice5, CheckCircle2 } from 'lucide-react';
-import logo from '@/assets/noor-logo.png';
+import logo from '@/assets/ltdez-logo.png';
 import { supabase } from '@/integrations/supabase/client';
 import { checkPasswordStrength, generateStrongPassword, mapAuthErrorToBangla } from '@/lib/passwordUtils';
 
@@ -182,7 +182,7 @@ export default function Auth() {
 
       <div className="w-full max-w-md relative">
         <div className="text-center mb-6">
-          <img src={logo} alt="Noor Handicraft Academy" className="h-14 mx-auto mb-3" />
+          <img src={logo} alt="LTDEZ" className="h-14 mx-auto mb-3" />
           <p className="text-muted-foreground text-sm">
             {mode === 'register' && 'নতুন অ্যাকাউন্ট তৈরি করুন'}
             {mode === 'login' && 'আপনার অ্যাকাউন্টে প্রবেশ করুন'}
@@ -291,7 +291,7 @@ export default function Auth() {
           ) : mode === 'login' ? (
             <form onSubmit={handleLogin} className="space-y-5">
               <h2 className="text-2xl font-bold text-center text-foreground">লগইন করুন</h2>
-              <p className="text-center text-xs uppercase tracking-widest text-muted-foreground">Noor Handicraft Academy</p>
+              <p className="text-center text-xs uppercase tracking-widest text-muted-foreground">LTDEZ</p>
               <div className="space-y-2">
                 <Label className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">ফোন নম্বর বা ইমেইল</Label>
                 <div className="relative">

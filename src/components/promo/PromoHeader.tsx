@@ -1,11 +1,11 @@
-import logo from "@/assets/noor-logo.png";
+import logo from "@/assets/ltdez-logo.png";
 
 export default function PromoHeader() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur border-b border-border">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <a href="#hero" className="flex items-center gap-2">
-          <img src={logo} alt="Noor Handicraft Academy" className="h-9 w-auto" />
+          <img src={logo} alt="LTDEZ" className="h-9 w-auto" />
           <span className="hidden sm:flex flex-col leading-tight">
             <span className="text-sm font-extrabold">Noor</span>
             <span className="text-[10px] text-muted-foreground -mt-0.5">Handicraft Academy</span>

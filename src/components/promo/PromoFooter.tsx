@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
-import logo from "@/assets/noor-logo.png";
+import logo from "@/assets/ltdez-logo.png";
 
 export default function PromoFooter() {
   return (
@@ -9,7 +9,7 @@ export default function PromoFooter() {
           <div className="flex items-center gap-2.5">
             <img src={logo} alt="Noor" className="h-10 w-auto bg-white rounded-lg p-1" />
             <div>
-              <div className="font-extrabold">Noor Handicraft</div>
+              <div className="font-extrabold">LTDEZ</div>
               <div className="text-xs text-white/60">Academy</div>
             </div>
           </div>
@@ -45,7 +45,7 @@ export default function PromoFooter() {
         </div>
       </div>
       <div className="max-w-5xl mx-auto mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/40">
-        © 2026 Noor Handicraft Academy. All rights reserved.
+        © 2026 LTDEZ. All rights reserved.
       </div>
     </footer>
   );

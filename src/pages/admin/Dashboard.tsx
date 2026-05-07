@@ -142,7 +142,7 @@ export default function Dashboard() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold">ড্যাশবোর্ড</h1>
-        <p className="text-muted-foreground">Noor Handicraft Academy এডমিন প্যানেলে স্বাগতম</p>
+        <p className="text-muted-foreground">LTDEZ এডমিন প্যানেলে স্বাগতম</p>
       </div>
 
       <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">

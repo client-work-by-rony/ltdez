@@ -30,8 +30,8 @@ interface UpgradeModalProps {
 }
 
 const PAYMENT_DETAILS = {
-  bkash: { number: '01711282515', name: 'Noor Handicraft Academy' },
-  nagad: { number: '01711282515', name: 'Noor Handicraft Academy' },
+  bkash: { number: '01711282515', name: 'LTDEZ' },
+  nagad: { number: '01711282515', name: 'LTDEZ' },
 };
 
 const PRO_PRICE = 999;
