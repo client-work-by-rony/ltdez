@@ -43,12 +43,6 @@ export default function PromoHeader() {
           >
             <LogIn className="h-4 w-4" /> লগইন
           </Link>
-          <a
-            href="#order"
-            className="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-bold shadow-lg shadow-primary/25 hover:opacity-95"
-          >
-            অর্ডার করুন
-          </a>
           <button
             className="md:hidden p-2 rounded-md hover:bg-muted"
             onClick={() => setOpen(!open)}
@@ -85,13 +79,6 @@ export default function PromoHeader() {
               >
                 <LogIn className="h-4 w-4" /> লগইন
               </Link>
-              <a
-                href="#order"
-                onClick={() => setOpen(false)}
-                className="mt-2 inline-flex justify-center px-5 py-3 rounded-full bg-primary text-primary-foreground text-sm font-bold"
-              >
-                অর্ডার করুন
-              </a>
             </div>
           </motion.div>
         )}
