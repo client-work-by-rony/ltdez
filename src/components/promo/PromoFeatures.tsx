@@ -93,7 +93,7 @@ export default function PromoFeatures() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {features.map((f, i) => (
             <motion.div
               key={i}
