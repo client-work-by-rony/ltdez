@@ -425,27 +425,83 @@ export type Database = {
           },
         ]
       }
+      payment_gateway_settings: {
+        Row: {
+          cancel_url: string | null
+          created_at: string
+          credentials: Json
+          gateway_name: string
+          id: string
+          is_active: boolean
+          mode: string
+          return_url: string | null
+          success_url: string | null
+          updated_at: string
+        }
+        Insert: {
+          cancel_url?: string | null
+          created_at?: string
+          credentials?: Json
+          gateway_name: string
+          id?: string
+          is_active?: boolean
+          mode?: string
+          return_url?: string | null
+          success_url?: string | null
+          updated_at?: string
+        }
+        Update: {
+          cancel_url?: string | null
+          created_at?: string
+          credentials?: Json
+          gateway_name?: string
+          id?: string
+          is_active?: boolean
+          mode?: string
+          return_url?: string | null
+          success_url?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       payment_requests: {
         Row: {
           amount: number
+          callback_log: Json | null
           course_id: string | null
           created_at: string
+          customer_address: string | null
+          customer_email: string | null
+          customer_name: string | null
+          gateway_name: string | null
+          gateway_order_id: string | null
+          gateway_response: Json | null
+          gateway_transaction_id: string | null
           id: string
           membership_type: Database["public"]["Enums"]["membership_type"] | null
           notes: string | null
           payment_method: string
           phone_number: string | null
+          product_name: string | null
           purchase_type: string
           status: string | null
           transaction_id: string | null
-          user_id: string
+          user_id: string | null
           verified_at: string | null
           verified_by: string | null
         }
         Insert: {
           amount: number
+          callback_log?: Json | null
           course_id?: string | null
           created_at?: string
+          customer_address?: string | null
+          customer_email?: string | null
+          customer_name?: string | null
+          gateway_name?: string | null
+          gateway_order_id?: string | null
+          gateway_response?: Json | null
+          gateway_transaction_id?: string | null
           id?: string
           membership_type?:
             | Database["public"]["Enums"]["membership_type"]
@@ -453,17 +509,26 @@ export type Database = {
           notes?: string | null
           payment_method: string
           phone_number?: string | null
+          product_name?: string | null
           purchase_type?: string
           status?: string | null
           transaction_id?: string | null
-          user_id: string
+          user_id?: string | null
           verified_at?: string | null
           verified_by?: string | null
         }
         Update: {
           amount?: number
+          callback_log?: Json | null
           course_id?: string | null
           created_at?: string
+          customer_address?: string | null
+          customer_email?: string | null
+          customer_name?: string | null
+          gateway_name?: string | null
+          gateway_order_id?: string | null
+          gateway_response?: Json | null
+          gateway_transaction_id?: string | null
           id?: string
           membership_type?:
             | Database["public"]["Enums"]["membership_type"]
@@ -471,10 +536,11 @@ export type Database = {
           notes?: string | null
           payment_method?: string
           phone_number?: string | null
+          product_name?: string | null
           purchase_type?: string
           status?: string | null
           transaction_id?: string | null
-          user_id?: string
+          user_id?: string | null
           verified_at?: string | null
           verified_by?: string | null
         }
