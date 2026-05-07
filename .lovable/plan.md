@@ -1,54 +1,40 @@
 ## লক্ষ্য
+আপলোড করা **LTDEZ লোগো** (Latent Talents Discovering & Employing Zone — "Learn Through Mistakes") দিয়ে পুরো ওয়েবসাইটের ব্র্যান্ডিং Noor Handicraft Academy থেকে **LTDEZ**-এ পরিবর্তন করা।
 
-আপলোড করা PDF (LTDEZ English fluency promo)-এর সব section হুবহু structure অনুযায়ী **হোম পেজ (`/`)**-এ Noor Handicraft Academy ব্র্যান্ডিং দিয়ে সাজানো। বর্তমান `/promo` page-এ যা আছে সেই components reuse করব এবং বাকি missing pieces add করে home-কে complete promo-style page বানাব।
+লোগো ইতিমধ্যে `src/assets/ltdez-logo.png`-এ কপি করা হয়েছে।
 
 ## পরিবর্তন
 
-### 1. Home page (`src/pages/Index.tsx`) সম্পূর্ণ rewrite
-পুরোনো Noor sections (`NoorHero`, `NoorProblem`, `NoorSolution`, `NoorFeatures`, `NoorCourses`, `NoorReviews`, `NoorFinalCTA`) সরিয়ে PDF অনুযায়ী নতুন order:
+### 1. Logo replacement
+সব জায়গায় `noor-logo.png` → `ltdez-logo.png`:
+- `src/components/promo/PromoHeader.tsx`
+- `src/components/promo/PromoFooter.tsx`
+- `src/components/noor/NoorHeader.tsx`
+- `src/components/noor/NoorFooter.tsx`
+- `src/components/dashboard/UserDashboardLayout.tsx` (যদি থাকে)
+- `src/components/admin/AdminSidebar.tsx` (যদি থাকে)
+- `src/pages/Auth.tsx` (যদি লোগো থাকে)
 
-```text
-PromoHeader
-PromoHero          → "হাতের কাজ শিখে আত্মবিশ্বাসের সাথে আয় শুরু করুন" + CTA
-PromoProblem       → "আপনি কি এই সমস্যাগুলোতে আটকে আছেন?" (4টা problem card)
-PromoSolution      → "Fear To Fluent" → "Zero থেকে Pro" Noor solution
-PromoFeatures      → ৬টা feature (Daily Practice, Vocabulary, ইত্যাদির craft equivalent)
-PromoTransformation→ Before / After 90 days (handicraft journey)
-PromoAudience      → Students / Housewives / Job Seekers / Beginners
-PromoLiveClass     → Zoom live class + countdown
-PromoPricing       → ৳৫০০ → ৳৪৯৯ (Save ৳১) one-time card
-PromoOrderForm     → Full Name / Phone / Email / Address → WhatsApp redirect
-PromoFAQ           → ৪টা FAQ accordion
-NoorReviews        → বিদ্যমান reviews carousel রাখব (social proof)
-PromoFinalCTA      → "Thousands Want Skill. Few Take Action."
-PromoFooter        → bKash/Nagad/Rocket + brand row
-FloatingActions    → WhatsApp/Call floating buttons
-```
+### 2. Brand name & copy update
+"Noor Handicraft Academy" / "Noor" → "LTDEZ" / "Learn Through Mistakes":
+- **Header**: brand text → `LTDEZ` / `Learn Through Mistakes`
+- **Footer**: brand block, email (`support@ltdez.com`), copyright → `© 2026 LTDEZ`
+- **Pricing card title**: `Noor Handicraft — Full Program` → `LTDEZ — Full Program`
+- **Order form WhatsApp message**: program name → `LTDEZ Full Program`
+- **Hero image alt**: `LTDEZ Course Promo`
+- **Tagline**: "Latent Talents Discovering & Employing Zone — আপনার ভেতরের প্রতিভা আবিষ্কার করুন, ভুল থেকে শিখুন।"
 
-### 2. PromoHeader nav links update
-PDF অনুযায়ী anchor links: `#hero`, `#problem`, `#solution`, `#features`, `#pricing`, `#faq`। লোগো/ব্র্যান্ড Noor-ই থাকবে।
+### 3. Page title / favicon
+- `index.html` `<title>` → `LTDEZ — Learn Through Mistakes`
+- `public/` favicon: লোগো ব্যবহার করে favicon update (favicon link in `index.html` → `/ltdez-logo.png` কপি `public/`-এ)
 
-### 3. `/promo` route রাখব নাকি সরাব?
-যেহেতু home এখন এই content দেখাবে, `/promo` redirect হিসেবে home-এ পাঠাব (`<Navigate to="/" />`) যাতে পুরোনো link ভাঙে না।
+### 4. যা touch হবে না
+- Course content / handicraft-specific copy (Hero headline, Problem cards) এখনো বাংলা handicraft messaging — যদি আপনি চান এটাও generic skill-based language-এ যাক, পরে বলুন
+- Database, auth flow, admin panel logic অপরিবর্তিত
+- Color theme (orange/amber) — LTDEZ লোগোর সাথে মিলে যায়, তাই unchanged
 
-### 4. কোনো নতুন database / backend পরিবর্তন নেই
-- Order form আগের মতই WhatsApp (`8801711282515`) এ pre-filled message পাঠাবে
-- Pricing, countdown, copy — সব frontend constant
+### 5. Memory update
+`mem://index.md` Core-এ ব্র্যান্ড লাইন update: `Brand: LTDEZ (Learn Through Mistakes). Logo at src/assets/ltdez-logo.png.`
 
-### 5. ছোট polish
-- PromoHero-তে "৮০+ Bangladeshi students" badge → "১০০০+ বাংলাদেশী শিক্ষার্থী" (ইতিমধ্যেই আছে)
-- Live class date constant verify (Friday 9 PM BD)
-- Section anchor id গুলো nav-এর সাথে match করা
-
-## কোন file গুলো বদলাবে
-
-- **Edit**: `src/pages/Index.tsx` (সম্পূর্ণ replace)
-- **Edit**: `src/App.tsx` (`/promo` → redirect)
-- **Edit**: `src/components/promo/PromoHeader.tsx` (nav links)
-- **Reuse as-is**: সব `src/components/promo/*` component এবং `NoorReviews`, `FloatingActions`
-
-## যা বদলাবে না
-
-- Auth, dashboard, admin, course pages — কোনোটাই touch হবে না
-- Database schema, edge functions, RLS — অপরিবর্তিত
-- Noor branding (orange theme, logo, fonts) — same
+## প্রশ্ন
+Hero/Problem/Features-এর বাংলা handicraft copy ("হাতের কাজ শিখে আয়", "craft technique" ইত্যাদি) কি LTDEZ-এর জন্য generic skill/learning copy-তে rewrite করব, নাকি handicraft theme-ই রাখব? Approve করলে শুধু branding (লোগো + নাম) বদলাব, copy পরের message-এ আলাদা করে কাজ করব।
