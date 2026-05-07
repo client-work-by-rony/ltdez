@@ -1,28 +1,38 @@
-import NoorHeader from "@/components/noor/NoorHeader";
-import NoorHero from "@/components/noor/NoorHero";
-import NoorProblem from "@/components/noor/NoorProblem";
-import NoorSolution from "@/components/noor/NoorSolution";
-import NoorFeatures from "@/components/noor/NoorFeatures";
-import NoorCourses from "@/components/noor/NoorCourses";
+import PromoHeader from "@/components/promo/PromoHeader";
+import PromoHero from "@/components/promo/PromoHero";
+import PromoProblem from "@/components/promo/PromoProblem";
+import PromoSolution from "@/components/promo/PromoSolution";
+import PromoFeatures from "@/components/promo/PromoFeatures";
+import PromoTransformation from "@/components/promo/PromoTransformation";
+import PromoAudience from "@/components/promo/PromoAudience";
+import PromoLiveClass from "@/components/promo/PromoLiveClass";
+import PromoPricing from "@/components/promo/PromoPricing";
+import PromoOrderForm from "@/components/promo/PromoOrderForm";
+import PromoFAQ from "@/components/promo/PromoFAQ";
+import PromoFinalCTA from "@/components/promo/PromoFinalCTA";
+import PromoFooter from "@/components/promo/PromoFooter";
 import NoorReviews from "@/components/noor/NoorReviews";
-import NoorFinalCTA from "@/components/noor/NoorFinalCTA";
-import NoorFooter from "@/components/noor/NoorFooter";
 import FloatingActions from "@/components/noor/FloatingActions";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <NoorHeader />
+      <PromoHeader />
       <main>
-        <NoorHero />
-        <NoorProblem />
-        <NoorSolution />
-        <NoorFeatures />
-        <NoorCourses />
+        <PromoHero />
+        <PromoProblem />
+        <PromoSolution />
+        <PromoFeatures />
+        <PromoTransformation />
+        <PromoAudience />
+        <PromoLiveClass />
+        <PromoPricing />
+        <PromoOrderForm />
         <NoorReviews />
-        <NoorFinalCTA />
+        <PromoFAQ />
+        <PromoFinalCTA />
       </main>
-      <NoorFooter />
+      <PromoFooter />
       <FloatingActions />
     </div>
   );
