@@ -28,13 +28,17 @@ import {
   ImageIcon,
   Database,
   Star,
+  ShoppingCart,
+  Shield,
 } from 'lucide-react';
 
 const menuItems = [
   { title: 'ড্যাশবোর্ড', url: '/admin', icon: LayoutDashboard },
+  { title: 'অর্ডার', url: '/admin/orders', icon: ShoppingCart },
   { title: 'কোর্স ম্যানেজমেন্ট', url: '/admin/courses', icon: GraduationCap },
   { title: 'ইউজার ম্যানেজমেন্ট', url: '/admin/users', icon: Users },
-  { title: 'পেমেন্ট', url: '/admin/payments', icon: CreditCard },
+  { title: 'পেমেন্ট রিকোয়েস্ট', url: '/admin/payments', icon: CreditCard },
+  { title: 'Payment Gateway', url: '/admin/payment-gateway', icon: Shield },
   { title: 'রিভিউ ম্যানেজমেন্ট', url: '/admin/reviews', icon: Star },
   { title: 'এনরোলমেন্ট', url: '/admin/enrollments', icon: GraduationCap },
   { title: 'ভিডিও ট্র্যাকিং', url: '/admin/video-tracking', icon: Play },

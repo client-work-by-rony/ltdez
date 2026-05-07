@@ -58,7 +58,7 @@ export default function PromoPricing() {
             </ul>
 
             <a
-              href="#order"
+              href="/checkout"
               className="mt-8 w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-primary via-orange-500 to-amber-400 text-primary-foreground font-bold text-lg shadow-xl shadow-primary/30 hover:scale-[1.02] transition-transform"
             >
               <Zap className="h-5 w-5" /> Place Order Now

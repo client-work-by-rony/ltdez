@@ -60,7 +60,7 @@ export default function PromoHero() {
           className="mt-8 flex flex-col sm:flex-row gap-3 justify-center"
         >
           <a
-            href="#order"
+            href="/checkout"
             className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-gradient-to-r from-primary to-amber-500 text-primary-foreground font-bold text-base shadow-xl shadow-primary/30 hover:scale-[1.02] transition-transform"
           >
             Start Speaking Today <ArrowRight className="h-5 w-5" />

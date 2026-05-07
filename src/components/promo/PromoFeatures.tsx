@@ -142,7 +142,7 @@ export default function PromoFeatures() {
                   আর কোনো confusion নয় — কোথায় শুরু করবেন, কীভাবে practice করবেন, সব কিছু ready আছে।
                 </p>
                 <a
-                  href="#order"
+                  href="/checkout"
                   className="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-amber-500 text-white font-bold text-sm shadow-lg hover:scale-[1.02] transition-transform"
                 >
                   Enroll Now <ArrowRight className="h-4 w-4" />
