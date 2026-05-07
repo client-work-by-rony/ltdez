@@ -35,6 +35,7 @@ import DailyTrackerPage from "@/pages/DailyTrackerPage";
 import SelfReflectionPage from "@/pages/SelfReflectionPage";
 import SelfAccountabilityPage from "@/pages/SelfAccountabilityPage";
 import CourseDetailPublic from "@/pages/CourseDetailPublic";
+import Promo from "@/pages/Promo";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/courses/:slug" element={<CourseDetailPublic />} />
+            <Route path="/promo" element={<Promo />} />
             <Route path="/dashboard" element={<UserDashboardLayout />}>
               <Route index element={<UserDashboard />} />
               <Route path="courses" element={<CoursesPage />} />
