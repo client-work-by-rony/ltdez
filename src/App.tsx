@@ -82,6 +82,8 @@ const App = () => (
               <Route path="images" element={<ImageManagerPage />} />
               <Route path="site-data" element={<SiteDataPage />} />
               <Route path="reviews" element={<ReviewsManagePage />} />
+              <Route path="orders" element={<OrdersPage />} />
+              <Route path="payment-gateway" element={<PaymentGatewayPage />} />
             </Route>
             <Route path="/daily-tracker" element={<DailyTrackerPage />} />
             <Route path="/self-reflection" element={<SelfReflectionPage />} />
