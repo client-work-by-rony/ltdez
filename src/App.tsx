@@ -35,6 +35,7 @@ import DailyTrackerPage from "@/pages/DailyTrackerPage";
 import SelfReflectionPage from "@/pages/SelfReflectionPage";
 import SelfAccountabilityPage from "@/pages/SelfAccountabilityPage";
 import CourseDetailPublic from "@/pages/CourseDetailPublic";
+import LiveProgram from "@/pages/LiveProgram";
 
 
 const queryClient = new QueryClient();
@@ -80,6 +81,7 @@ const App = () => (
             <Route path="/daily-tracker" element={<DailyTrackerPage />} />
             <Route path="/self-reflection" element={<SelfReflectionPage />} />
             <Route path="/self-accountability" element={<SelfAccountabilityPage />} />
+            <Route path="/live-program" element={<LiveProgram />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
