@@ -34,7 +34,7 @@ export default function PromoLiveClass() {
   const dateStr = target.toLocaleDateString("bn-BD", { weekday: "long", day: "numeric", month: "long" });
 
   return (
-    <section className="py-16 md:py-20 px-4 bg-orange-50/40">
+    <section id="live" className="py-16 md:py-20 px-4 bg-orange-50/40">
       <div className="max-w-3xl mx-auto">
         <div className="rounded-3xl bg-gradient-to-br from-[#2d1810] to-[#5b2a14] text-white p-8 md:p-12 shadow-2xl">
           <div className="text-center">
