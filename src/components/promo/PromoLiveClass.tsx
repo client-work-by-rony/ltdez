@@ -61,7 +61,7 @@ export default function PromoLiveClass() {
             </div>
 
             <a
-              href="#order"
+              href="/checkout"
               className="mt-8 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-primary to-amber-400 text-primary-foreground font-bold shadow-xl hover:scale-[1.02] transition-transform"
             >
               Reserve My Seat <ArrowRight className="h-4 w-4" />

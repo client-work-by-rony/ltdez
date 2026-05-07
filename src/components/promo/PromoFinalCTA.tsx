@@ -21,7 +21,7 @@ export default function PromoFinalCTA() {
           আজকেই decision নিন — ৬০ দিন পর আপনি confident English speaker হয়ে উঠবেন।
         </p>
         <a
-          href="#order"
+          href="/checkout"
           className="mt-10 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-primary to-amber-400 text-primary-foreground font-bold text-lg shadow-2xl shadow-primary/40 hover:scale-[1.03] transition-transform"
         >
           Place Order Now <ArrowRight className="h-5 w-5" />
