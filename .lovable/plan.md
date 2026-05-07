@@ -1,48 +1,54 @@
-
 ## লক্ষ্য
 
-"বিস্তারিত দেখুন" বাটনে ক্লিক করলে যে পেজে যায় (`/courses/:slug`) — সেটাকে এমন একটি সম্পূর্ণ, পরিষ্কার ও আকর্ষণীয় পেজে পরিণত করা যেখানে একজন নতুন ভিজিটর এক নজরে বুঝে ফেলবে: কোর্সে কী শেখানো হবে, কখন ক্লাস হবে, লাইভ না রেকর্ডেড, কতজন শিখেছে, তাদের রেটিং/রিভিউ, কোর্সের মূল্য, এবং কীভাবে ভর্তি হবে।
+LTDEZ promo page এর সম্পূর্ণ structure clone করা হবে — একই section flow, একই conversion-focused layout — কিন্তু **Noor Handicraft Academy** এর brand, content, color (orange `28 95% 55%`) ও language দিয়ে। এটি হবে একটি single promo/sales page যা একটি specific course বা limited-time offer প্রমোট করবে।
 
-পেজের কাঠামো (`CourseDetailPublic.tsx`) ইতিমধ্যেই আছে — কিন্তু বেশিরভাগ কোর্সে ডেটা খালি, এবং কয়েকটি গুরুত্বপূর্ণ সেকশন এখনও যোগ করা বাকি। তাই দু'টো কাজ একসাথে করা হবে:
+## নতুন route
 
----
+`/promo` — main landing page (`/`) আলাদা থাকবে; এই promo page একটি independent conversion-focused page হবে। App.tsx এ route যোগ হবে।
 
-## ১) কোর্স ডিটেইল পেজে নতুন/উন্নত সেকশন
+## পেজের section order (LTDEZ এর মত)
 
-বর্তমান সেকশন (Hero, Trailer, Live Schedule, Outcomes, Career Outcomes, Curriculum, Reviews, Final CTA) — এর সাথে যোগ হবে:
-
-- **স্টিকি "এক নজরে" সাইডবার (ডেস্কটপ)** — মূল্য, কোর্স টাইপ (লাইভ/রেকর্ডেড ব্যাজ), মোট লেসন/মডিউল, স্টুডেন্ট সংখ্যা, রেটিং, ভাষা (বাংলা), লাইফটাইম অ্যাক্সেস, সার্টিফিকেট — সবগুলো একটি ক্লিন কার্ডে আইকনসহ
-- **"এই কোর্স কাদের জন্য"** সেকশন (নতুন/গৃহিণী/ব্যবসা শুরু করতে আগ্রহী, ইত্যাদি) — কার্ড গ্রিড
-- **"কোর্সে আপনি যা যা পাবেন"** ফিচার লিস্ট — ভিডিও লেসন, PDF রিসোর্স, কমিউনিটি অ্যাক্সেস, সার্টিফিকেট, লাইফটাইম আপডেট, অ্যাসাইনমেন্ট রিভিউ
-- **লাইভ/রেকর্ডেড ব্যাজ আরো প্রমিনেন্ট** — হিরোতে বড় করে পরিষ্কার লেখা থাকবে: "এই কোর্সটি লাইভ ক্লাসে নেওয়া হবে" বা "এই কোর্সটি সম্পূর্ণ রেকর্ডেড — যেকোনো সময় দেখুন"
-- **স্ট্যাটস স্ট্রিপ** — হিরোর নিচে: ⭐ অ্যাভারেজ রেটিং · 👥 মোট স্টুডেন্ট · 📚 মোট লেসন · ⏱ মোট সময় — বড় সংখ্যাসহ
-- **FAQ অ্যাকর্ডিয়ন** — সাধারণ প্রশ্ন (ভর্তি কীভাবে, পেমেন্ট, রিফান্ড, সার্টিফিকেট, সাপোর্ট)
-- **মানি-ব্যাক গ্যারান্টি ব্যাজ** — ৭ দিনের গ্যারান্টি কার্ড
-- **মোবাইলে স্টিকি বটম বার** — দাম + "এখনই জয়েন করুন" বাটন স্ক্রলে সবসময় দৃশ্যমান
-
-খালি ডেটার জন্য সুন্দর fallback (যেমন career_outcomes না থাকলে সেকশন হাইড না করে generic "এই কোর্স শেষে নিজেই ছোট ব্যবসা শুরু করতে পারবেন" দেখাবে কিনা — অথবা পরিচ্ছন্নভাবে hide হবে)।
-
-## ২) বিদ্যমান ১০টি কোর্সে অর্থপূর্ণ ডেটা সিড করা
-
-ডেটাবেজে এখন প্রতিটি কোর্সের `description`, `career_outcomes`, `live_schedule`, `course_type`, `trailer_url`, `student_count_override` খালি। প্রতিটি কোর্সের জন্য একটি migration দিয়ে আপডেট করা হবে:
-
-- **description** — প্রতিটি কোর্সের ২–৩ লাইনের বিস্তারিত বর্ণনা (বাংলায়)
-- **career_outcomes** — ৪–৬টি বাস্তবসম্মত আউটকাম ("ফ্রিল্যান্স অর্ডার নেওয়া", "ফেসবুক পেজে বিক্রয় শুরু", "মাসে ৫–১৫ হাজার আয়", "এক্সপোর্ট মার্কেটে সরবরাহ" ইত্যাদি)
-- **course_type** — উপযুক্ত কোর্সে `live` / `hybrid` (যেমন মাস্টারক্লাসগুলো hybrid), বাকিগুলো `recorded`
-- **live_schedule** — যেগুলো live/hybrid সেগুলোতে নমুনা সময়সূচি ("প্রতি শুক্র ও শনিবার, রাত ৯টা–১০:৩০, Zoom লিঙ্ক ভর্তি হলে দেওয়া হবে")
-- **student_count_override** — বাস্তবসম্মত প্রাথমিক সংখ্যা (যেমন ১২০–৪৫০) যাতে নতুন ভিজিটরের কাছে কোর্স সক্রিয় মনে হয়
-
-(আপনি অ্যাডমিন প্যানেল থেকে যেকোনো সময় এডিট করতে পারবেন — এটি শুধু ডিফল্ট সিড।)
-
-## ৩) NoorCourses কার্ডে ছোট উন্নতি
-
-হোমপেজের কোর্স কার্ডে "বিস্তারিত দেখুন" বাটনের পাশে ছোট ব্যাজ — `লাইভ` / `রেকর্ডেড` — দেখানো হবে যাতে কার্ড থেকেই প্রাথমিক ধারণা পাওয়া যায়।
-
----
+```text
+1. Hero          — promo image + headline + sub + 2 CTA + enrollment count badge
+2. Problem       — dark section, 4 problem cards (red/dark)
+3. Solution      — "সম্পূর্ণ Solution" badge + 2 highlight cards
+4. Features      — 6টি feature card (icon + title + desc)
+5. Transformation— Before / After 2-column compare card
+6. Audience      — Students/Homemakers/Job Seekers/Beginners ছোট badge cards
+7. Live Class    — countdown timer card (next live class)
+8. Pricing       — One-Time Special Pricing card with strike-through
+9. Order Form    — Name / Phone / Email / Address + Place Order button
+10. FAQ          — accordion (4-5 questions)
+11. Final CTA    — dark section "Few Take Action" style
+12. Footer       — brand + contact + legal links + WhatsApp button
+```
 
 ## টেকনিক্যাল পরিবর্তন
 
-- **`src/pages/CourseDetailPublic.tsx`** — নতুন সেকশন যোগ: stats strip, "কাদের জন্য", "যা যা পাবেন", FAQ accordion, money-back card, mobile sticky bottom bar, ডেস্কটপে sticky সাইডবার রিফাইন
-- **`src/components/noor/NoorCourses.tsx`** — কার্ডে course_type ব্যাজ
-- **নতুন migration** — ১০টি কোর্সের `description`, `career_outcomes`, `course_type`, `live_schedule`, `student_count_override` UPDATE
-- নতুন কোনো টেবিল/স্কিমা পরিবর্তন লাগবে না; পেমেন্ট ফ্লো (`UpgradeModal` → manual bKash/Nagad → admin verification) আগের মতই থাকবে; অ্যাডমিন প্যানেলে কোর্স ও রিভিউ ম্যানেজমেন্ট ইতিমধ্যে আছে
+- **নতুন folder**: `src/components/promo/` — প্রতিটি section আলাদা component:
+  - `PromoHeader.tsx`, `PromoHero.tsx`, `PromoProblem.tsx`, `PromoSolution.tsx`, `PromoFeatures.tsx`, `PromoTransformation.tsx`, `PromoAudience.tsx`, `PromoLiveClass.tsx` (countdown), `PromoPricing.tsx`, `PromoOrderForm.tsx`, `PromoFAQ.tsx`, `PromoFinalCTA.tsx`, `PromoFooter.tsx`
+- **নতুন page**: `src/pages/Promo.tsx` — সব section assemble করবে
+- **`src/App.tsx`** — `/promo` route যোগ
+- **Order form**: existing `payment_requests` table ব্যবহার (manual bKash/Nagad flow — যেটা memory তে আছে)। Form submit হলে — entry insert হবে + WhatsApp link এ redirect (admin number `01711282515`)
+- **Countdown**: client-side date-based countdown (next Friday 9pm BD time, configurable constant)
+- **Design tokens**: Noor orange primary already in `index.css` — সব section semantic tokens ব্যবহার করবে (no hardcoded colors)
+- **Animations**: Framer Motion (fade/slide-in on scroll) — existing pattern অনুসরণ
+- **Logo**: existing `src/assets/noor-logo.png`
+- **Hero image**: একটি placeholder promotional image যোগ করা হবে (`src/assets/promo-hero.jpg`) — Noor handicraft theme অনুযায়ী generate করা হবে
+
+## Content (Noor branding)
+
+- **Hero headline**: "হাতের কাজ শিখে আত্মবিশ্বাসের সাথে আয় শুরু করুন" + "১০০০+ বাংলাদেশী শিক্ষার্থী ইতিমধ্যে যুক্ত"
+- **Problems**: হাতের কাজ শিখতে চান কিন্তু কোথা থেকে শুরু করবেন বুঝতে পারছেন না / অনলাইন বিক্রি জানেন না / মূলধন কম / সময়ের অভাব
+- **Features**: Step-by-Step ভিডিও লেসন · Live ক্লাস · WhatsApp সাপোর্ট · ডিজাইন রিসোর্স · অনলাইন সেলিং গাইড · Lifetime Access
+- **Pricing**: একটি promo offer (e.g. ৳২৯৯০ → ৳৪৯৯ limited time) — admin চাইলে পরে edit
+- **FAQ**: Beginner শুরু করতে পারবে? · Live class কখন? · Recording পাবো? · Payment কীভাবে? · Refund?
+- **Footer**: Noor Handicraft Academy + bKash/Nagad badges + WhatsApp button
+
+## যা পরিবর্তন হবে না
+
+- বিদ্যমান main landing (`/`), dashboard, admin panel, auth — সবকিছু আগের মতো
+- Database schema পরিবর্তন নেই (existing `payment_requests` ব্যবহৃত হবে)
+- কোনো নতুন backend/edge function লাগবে না
+
+approve করলে আমি build করব।
