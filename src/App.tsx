@@ -36,6 +36,11 @@ import SelfReflectionPage from "@/pages/SelfReflectionPage";
 import SelfAccountabilityPage from "@/pages/SelfAccountabilityPage";
 import CourseDetailPublic from "@/pages/CourseDetailPublic";
 import LiveProgram from "@/pages/LiveProgram";
+import Checkout from "@/pages/Checkout";
+import ThankYou from "@/pages/ThankYou";
+import PaymentFailed from "@/pages/PaymentFailed";
+import PaymentGatewayPage from "@/pages/admin/PaymentGatewayPage";
+import OrdersPage from "@/pages/admin/OrdersPage";
 
 
 const queryClient = new QueryClient();
@@ -82,6 +87,9 @@ const App = () => (
             <Route path="/self-reflection" element={<SelfReflectionPage />} />
             <Route path="/self-accountability" element={<SelfAccountabilityPage />} />
             <Route path="/live-program" element={<LiveProgram />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/payment-failed" element={<PaymentFailed />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

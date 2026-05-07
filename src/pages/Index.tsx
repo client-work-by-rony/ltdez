@@ -7,7 +7,7 @@ import PromoTransformation from "@/components/promo/PromoTransformation";
 import PromoAudience from "@/components/promo/PromoAudience";
 import PromoLiveClass from "@/components/promo/PromoLiveClass";
 import PromoPricing from "@/components/promo/PromoPricing";
-import PromoOrderForm from "@/components/promo/PromoOrderForm";
+
 import PromoFAQ from "@/components/promo/PromoFAQ";
 import PromoFinalCTA from "@/components/promo/PromoFinalCTA";
 import PromoFooter from "@/components/promo/PromoFooter";
@@ -27,7 +27,6 @@ const Index = () => {
         <PromoAudience />
         
         <PromoPricing />
-        <PromoOrderForm />
         <NoorReviews />
         <PromoFAQ />
         <PromoFinalCTA />
