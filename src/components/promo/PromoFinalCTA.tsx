@@ -11,20 +11,20 @@ export default function PromoFinalCTA() {
           viewport={{ once: true }}
           className="text-4xl md:text-6xl font-extrabold leading-tight"
         >
-          হাজারো মানুষ Skill চায়।
+          Thousands Want Fluency.
           <br />
           <span className="bg-gradient-to-r from-primary to-amber-400 bg-clip-text text-transparent">
             Few Take Action.
           </span>
         </motion.h2>
         <p className="mt-6 text-white/70 text-base md:text-lg">
-          আজকেই decision নিন — ৯০ দিন পর আপনি একদম নতুন version এ থাকবেন।
+          আজকেই decision নিন — ৬০ দিন পর আপনি confident English speaker হয়ে উঠবেন।
         </p>
         <a
           href="#order"
           className="mt-10 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-primary to-amber-400 text-primary-foreground font-bold text-lg shadow-2xl shadow-primary/40 hover:scale-[1.03] transition-transform"
         >
-          এখনই জয়েন করুন <ArrowRight className="h-5 w-5" />
+          Place Order Now <ArrowRight className="h-5 w-5" />
         </a>
       </div>
     </section>

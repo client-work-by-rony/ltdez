@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { X, Check } from "lucide-react";
 
-const before = ["কোন skill নেই", "আয়ের পথ বন্ধ", "Confidence কম", "সময় নষ্ট হচ্ছে", "নিজের উপর সন্দেহ"];
-const after = ["Professional Craft Skill", "মাসে ১০–৩০ হাজার আয়", "Strong Confidence", "Productive Routine", "Proud of yourself"];
+const before = ["English এ Fear ও Hesitation", "Sentence আটকে যায়", "Confidence একদম নেই", "Interview এ চুপ থাকেন", "Opportunity miss হয়"];
+const after = ["Fluent English Speaking", "Smooth Sentence Flow", "Strong Confidence", "Interview Ready", "Better Communication"];
 
 export default function PromoTransformation() {
   return (
@@ -12,7 +12,7 @@ export default function PromoTransformation() {
           <h2 className="text-3xl md:text-5xl font-extrabold">
             আপনার <span className="bg-gradient-to-r from-primary to-amber-500 bg-clip-text text-transparent">Transformation</span>
           </h2>
-          <p className="mt-3 text-muted-foreground">৯০ দিনে আপনি একদম নতুন version এ পরিণত হবেন।</p>
+          <p className="mt-3 text-muted-foreground">৬০ দিনে আপনি একদম নতুন version এ পরিণত হবেন।</p>
         </div>
         <div className="grid md:grid-cols-2 gap-5">
           <motion.div
@@ -40,7 +40,7 @@ export default function PromoTransformation() {
             viewport={{ once: true }}
             className="rounded-3xl p-8 bg-green-50 border-2 border-green-100"
           >
-            <span className="text-xs font-bold text-green-600">AFTER 90 DAYS</span>
+            <span className="text-xs font-bold text-green-600">AFTER 60 DAYS</span>
             <h3 className="text-2xl font-extrabold mt-1 mb-5">নতুন আপনি</h3>
             <ul className="space-y-3">
               {after.map((a, i) => (

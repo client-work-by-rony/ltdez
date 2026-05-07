@@ -1,11 +1,12 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
-  { q: "Beginner কি join করতে পারবেন?", a: "অবশ্যই। এই program সম্পূর্ণভাবে beginner-দের জন্য ডিজাইন করা। শূন্য থেকেই শুরু করতে পারবেন।" },
+  { q: "Beginners join করতে পারবেন?", a: "অবশ্যই। এই program সম্পূর্ণভাবে beginner-দের জন্য ডিজাইন করা। শূন্য থেকেই শুরু করতে পারবেন।" },
   { q: "Live class হবে কখন?", a: "প্রতি শুক্রবার রাত ৯টা–১০টা (BD Time), Zoom-এ। ভর্তির পর link পাবেন।" },
-  { q: "Recording পাবো কি?", a: "হ্যাঁ, প্রতিটি live ক্লাসের recording lifetime access পাবেন।" },
-  { q: "Payment কীভাবে করবো?", a: "bKash, Nagad, Rocket বা Card — যেকোনো একটিতে। Order করার পর WhatsApp-এ instruction পাবেন।" },
-  { q: "Refund পাবো কি?", a: "৭ দিনের money-back guarantee — কোর্স পছন্দ না হলে পুরো টাকা ফেরত।" },
+  { q: "Recording পাবো কি?", a: "হ্যাঁ, প্রতিটি live class এর recording lifetime access পাবেন।" },
+  { q: "Mobile দিয়ে করা যাবে?", a: "হ্যাঁ, সম্পূর্ণ program mobile-friendly। ফোন দিয়েই সব কিছু access করতে পারবেন।" },
+  { q: "Support থাকবে?", a: "WhatsApp group এ instructor ও community থেকে daily support পাবেন।" },
+  { q: "Payment কীভাবে করবো?", a: "bKash, Nagad, Rocket বা Card — যেকোনো একটিতে। Order করার পর WhatsApp এ instruction পাবেন।" },
 ];
 
 export default function PromoFAQ() {

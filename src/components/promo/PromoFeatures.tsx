@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
-import { Video, BookOpen, Headphones, MessageCircle, FileCheck, Brain } from "lucide-react";
+import { Mic, BookOpen, Headphones, MessageCircle, Video, Brain, Users } from "lucide-react";
 
 const features = [
-  { icon: Video, title: "Step-by-Step ভিডিও লেসন", desc: "প্রতিটি craft technique HD ভিডিওতে শিখুন।" },
-  { icon: BookOpen, title: "ডিজাইন ও প্যাটার্ন রিসোর্স", desc: "১০০+ ready-to-use design template ও pattern।" },
-  { icon: Headphones, title: "Live Zoom ক্লাস", desc: "Live session-এ প্রশ্ন করুন এবং real-time feedback নিন।" },
-  { icon: MessageCircle, title: "WhatsApp Group Support", desc: "যেকোনো সময় instructor ও কমিউনিটির সাহায্য।" },
-  { icon: FileCheck, title: "অনলাইন সেলিং গাইড", desc: "Facebook page, Instagram ও marketplace-এ বিক্রি।" },
-  { icon: Brain, title: "Mindset & Confidence Training", desc: "ভয়কে আত্মবিশ্বাসে রূপান্তর করার practical system।" },
+  { icon: Mic, title: "Daily Speaking Practice", desc: "প্রতিদিন structured speaking task — অভ্যাসই key।" },
+  { icon: BookOpen, title: "Vocabulary System", desc: "৫০০+ daily-use word ও phrase, smart memorization technique সহ।" },
+  { icon: Headphones, title: "Pronunciation Training", desc: "প্রতিটি sound ও accent এর সঠিক pronunciation drill।" },
+  { icon: Video, title: "Live Zoom Class", desc: "Weekly live session — instructor এর সাথে real-time practice।" },
+  { icon: MessageCircle, title: "WhatsApp Support", desc: "যেকোনো সময় instructor ও community এর সাহায্য।" },
+  { icon: Brain, title: "Confidence Building", desc: "Fear-killing mindset training — ভয় কে আত্মবিশ্বাসে রূপান্তর।" },
+  { icon: Users, title: "Real Conversation Practice", desc: "Partner pairing ও role-play — actual conversation এ fluency।" },
 ];
 
 export default function PromoFeatures() {
@@ -16,7 +17,7 @@ export default function PromoFeatures() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-extrabold">কোর্সে যা যা পাবেন</h2>
-          <p className="mt-3 text-muted-foreground">সবকিছু এক জায়গায় — সফল হওয়ার জন্য যা যা দরকার।</p>
+          <p className="mt-3 text-muted-foreground">Fluent English Speaker হওয়ার জন্য যা যা দরকার — সবকিছু এক জায়গায়।</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map((f, i) => (

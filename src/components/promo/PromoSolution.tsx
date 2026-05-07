@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-import { Sparkles, MapPin, BookOpen } from "lucide-react";
+import { Sparkles, MapPin, BookOpen, Mic } from "lucide-react";
 
 const items = [
-  { icon: BookOpen, title: "Bangla Friendly System", desc: "প্রতিটি concept বাংলায় explain — জটিল কিছু নেই।" },
-  { icon: MapPin, title: "Step-by-Step Roadmap", desc: "Beginner থেকে professional — প্রতিদিন কী করতে হবে clear।" },
+  { icon: BookOpen, title: "Bangla Friendly System", desc: "প্রতিটি rule ও concept বাংলায় explain — জটিল কিছু নেই।" },
+  { icon: MapPin, title: "Step-by-Step Roadmap", desc: "Beginner থেকে fluent — প্রতিদিন কী practice করবেন তা clear।" },
+  { icon: Mic, title: "Real Speaking Practice", desc: "Live partner practice + daily speaking task — মুখ খোলার অভ্যাস।" },
 ];
 
 export default function PromoSolution() {
@@ -14,12 +15,12 @@ export default function PromoSolution() {
           <Sparkles className="h-3.5 w-3.5" /> THE SOLUTION
         </span>
         <h2 className="mt-5 text-3xl md:text-5xl font-extrabold">
-          <span className="bg-gradient-to-r from-primary to-amber-500 bg-clip-text text-transparent">Fear To Skill</span> — সম্পূর্ণ Solution
+          <span className="bg-gradient-to-r from-primary to-amber-500 bg-clip-text text-transparent">Fear To Fluent</span> — সম্পূর্ণ Solution
         </h2>
         <p className="mt-3 text-muted-foreground">
-          Beginner-friendly system যেটা আপনাকে hand-hold করে professional craft maker বানাবে।
+          Beginner-friendly system যেটা আপনাকে hand-hold করে confident English speaker বানাবে।
         </p>
-        <div className="mt-12 grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
+        <div className="mt-12 grid sm:grid-cols-3 gap-5">
           {items.map((it, i) => (
             <motion.div
               key={i}
