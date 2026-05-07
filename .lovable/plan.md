@@ -1,54 +1,54 @@
 ## লক্ষ্য
 
-LTDEZ promo page এর সম্পূর্ণ structure clone করা হবে — একই section flow, একই conversion-focused layout — কিন্তু **Noor Handicraft Academy** এর brand, content, color (orange `28 95% 55%`) ও language দিয়ে। এটি হবে একটি single promo/sales page যা একটি specific course বা limited-time offer প্রমোট করবে।
+আপলোড করা PDF (LTDEZ English fluency promo)-এর সব section হুবহু structure অনুযায়ী **হোম পেজ (`/`)**-এ Noor Handicraft Academy ব্র্যান্ডিং দিয়ে সাজানো। বর্তমান `/promo` page-এ যা আছে সেই components reuse করব এবং বাকি missing pieces add করে home-কে complete promo-style page বানাব।
 
-## নতুন route
+## পরিবর্তন
 
-`/promo` — main landing page (`/`) আলাদা থাকবে; এই promo page একটি independent conversion-focused page হবে। App.tsx এ route যোগ হবে।
-
-## পেজের section order (LTDEZ এর মত)
+### 1. Home page (`src/pages/Index.tsx`) সম্পূর্ণ rewrite
+পুরোনো Noor sections (`NoorHero`, `NoorProblem`, `NoorSolution`, `NoorFeatures`, `NoorCourses`, `NoorReviews`, `NoorFinalCTA`) সরিয়ে PDF অনুযায়ী নতুন order:
 
 ```text
-1. Hero          — promo image + headline + sub + 2 CTA + enrollment count badge
-2. Problem       — dark section, 4 problem cards (red/dark)
-3. Solution      — "সম্পূর্ণ Solution" badge + 2 highlight cards
-4. Features      — 6টি feature card (icon + title + desc)
-5. Transformation— Before / After 2-column compare card
-6. Audience      — Students/Homemakers/Job Seekers/Beginners ছোট badge cards
-7. Live Class    — countdown timer card (next live class)
-8. Pricing       — One-Time Special Pricing card with strike-through
-9. Order Form    — Name / Phone / Email / Address + Place Order button
-10. FAQ          — accordion (4-5 questions)
-11. Final CTA    — dark section "Few Take Action" style
-12. Footer       — brand + contact + legal links + WhatsApp button
+PromoHeader
+PromoHero          → "হাতের কাজ শিখে আত্মবিশ্বাসের সাথে আয় শুরু করুন" + CTA
+PromoProblem       → "আপনি কি এই সমস্যাগুলোতে আটকে আছেন?" (4টা problem card)
+PromoSolution      → "Fear To Fluent" → "Zero থেকে Pro" Noor solution
+PromoFeatures      → ৬টা feature (Daily Practice, Vocabulary, ইত্যাদির craft equivalent)
+PromoTransformation→ Before / After 90 days (handicraft journey)
+PromoAudience      → Students / Housewives / Job Seekers / Beginners
+PromoLiveClass     → Zoom live class + countdown
+PromoPricing       → ৳৫০০ → ৳৪৯৯ (Save ৳১) one-time card
+PromoOrderForm     → Full Name / Phone / Email / Address → WhatsApp redirect
+PromoFAQ           → ৪টা FAQ accordion
+NoorReviews        → বিদ্যমান reviews carousel রাখব (social proof)
+PromoFinalCTA      → "Thousands Want Skill. Few Take Action."
+PromoFooter        → bKash/Nagad/Rocket + brand row
+FloatingActions    → WhatsApp/Call floating buttons
 ```
 
-## টেকনিক্যাল পরিবর্তন
+### 2. PromoHeader nav links update
+PDF অনুযায়ী anchor links: `#hero`, `#problem`, `#solution`, `#features`, `#pricing`, `#faq`। লোগো/ব্র্যান্ড Noor-ই থাকবে।
 
-- **নতুন folder**: `src/components/promo/` — প্রতিটি section আলাদা component:
-  - `PromoHeader.tsx`, `PromoHero.tsx`, `PromoProblem.tsx`, `PromoSolution.tsx`, `PromoFeatures.tsx`, `PromoTransformation.tsx`, `PromoAudience.tsx`, `PromoLiveClass.tsx` (countdown), `PromoPricing.tsx`, `PromoOrderForm.tsx`, `PromoFAQ.tsx`, `PromoFinalCTA.tsx`, `PromoFooter.tsx`
-- **নতুন page**: `src/pages/Promo.tsx` — সব section assemble করবে
-- **`src/App.tsx`** — `/promo` route যোগ
-- **Order form**: existing `payment_requests` table ব্যবহার (manual bKash/Nagad flow — যেটা memory তে আছে)। Form submit হলে — entry insert হবে + WhatsApp link এ redirect (admin number `01711282515`)
-- **Countdown**: client-side date-based countdown (next Friday 9pm BD time, configurable constant)
-- **Design tokens**: Noor orange primary already in `index.css` — সব section semantic tokens ব্যবহার করবে (no hardcoded colors)
-- **Animations**: Framer Motion (fade/slide-in on scroll) — existing pattern অনুসরণ
-- **Logo**: existing `src/assets/noor-logo.png`
-- **Hero image**: একটি placeholder promotional image যোগ করা হবে (`src/assets/promo-hero.jpg`) — Noor handicraft theme অনুযায়ী generate করা হবে
+### 3. `/promo` route রাখব নাকি সরাব?
+যেহেতু home এখন এই content দেখাবে, `/promo` redirect হিসেবে home-এ পাঠাব (`<Navigate to="/" />`) যাতে পুরোনো link ভাঙে না।
 
-## Content (Noor branding)
+### 4. কোনো নতুন database / backend পরিবর্তন নেই
+- Order form আগের মতই WhatsApp (`8801711282515`) এ pre-filled message পাঠাবে
+- Pricing, countdown, copy — সব frontend constant
 
-- **Hero headline**: "হাতের কাজ শিখে আত্মবিশ্বাসের সাথে আয় শুরু করুন" + "১০০০+ বাংলাদেশী শিক্ষার্থী ইতিমধ্যে যুক্ত"
-- **Problems**: হাতের কাজ শিখতে চান কিন্তু কোথা থেকে শুরু করবেন বুঝতে পারছেন না / অনলাইন বিক্রি জানেন না / মূলধন কম / সময়ের অভাব
-- **Features**: Step-by-Step ভিডিও লেসন · Live ক্লাস · WhatsApp সাপোর্ট · ডিজাইন রিসোর্স · অনলাইন সেলিং গাইড · Lifetime Access
-- **Pricing**: একটি promo offer (e.g. ৳২৯৯০ → ৳৪৯৯ limited time) — admin চাইলে পরে edit
-- **FAQ**: Beginner শুরু করতে পারবে? · Live class কখন? · Recording পাবো? · Payment কীভাবে? · Refund?
-- **Footer**: Noor Handicraft Academy + bKash/Nagad badges + WhatsApp button
+### 5. ছোট polish
+- PromoHero-তে "৮০+ Bangladeshi students" badge → "১০০০+ বাংলাদেশী শিক্ষার্থী" (ইতিমধ্যেই আছে)
+- Live class date constant verify (Friday 9 PM BD)
+- Section anchor id গুলো nav-এর সাথে match করা
 
-## যা পরিবর্তন হবে না
+## কোন file গুলো বদলাবে
 
-- বিদ্যমান main landing (`/`), dashboard, admin panel, auth — সবকিছু আগের মতো
-- Database schema পরিবর্তন নেই (existing `payment_requests` ব্যবহৃত হবে)
-- কোনো নতুন backend/edge function লাগবে না
+- **Edit**: `src/pages/Index.tsx` (সম্পূর্ণ replace)
+- **Edit**: `src/App.tsx` (`/promo` → redirect)
+- **Edit**: `src/components/promo/PromoHeader.tsx` (nav links)
+- **Reuse as-is**: সব `src/components/promo/*` component এবং `NoorReviews`, `FloatingActions`
 
-approve করলে আমি build করব।
+## যা বদলাবে না
+
+- Auth, dashboard, admin, course pages — কোনোটাই touch হবে না
+- Database schema, edge functions, RLS — অপরিবর্তিত
+- Noor branding (orange theme, logo, fonts) — same
