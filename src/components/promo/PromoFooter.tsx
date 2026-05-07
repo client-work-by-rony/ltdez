@@ -7,7 +7,7 @@ export default function PromoFooter() {
       <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-10">
         <div>
           <div className="flex items-center gap-2.5">
-            <img src={logo} alt="Noor" className="h-10 w-auto bg-white rounded-lg p-1" />
+            <img src={logo} alt="LTDEZ" className="h-10 w-auto bg-white rounded-lg p-1" />
             <div>
               <div className="font-extrabold">LTDEZ</div>
               <div className="text-xs text-white/60">Academy</div>

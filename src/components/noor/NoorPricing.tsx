@@ -29,7 +29,7 @@ export default function NoorPricing() {
             ৫০% OFF
           </div>
 
-          <h3 className="text-2xl font-extrabold">Noor Handicraft — Full Course</h3>
+          <h3 className="text-2xl font-extrabold">LTDEZ — Full Course</h3>
           <div className="mt-4 flex items-baseline gap-3">
             <span className="text-muted-foreground line-through text-xl">৳১৯৯৯</span>
             <span className="text-5xl md:text-6xl font-extrabold text-primary">৳৯৯৯</span>

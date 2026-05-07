@@ -21,8 +21,8 @@ export default function NoorHeader() {
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="LTDEZ" className="h-10 md:h-12 w-auto" />
           <span className="hidden sm:flex flex-col leading-tight">
-            <span className="text-base md:text-lg font-extrabold text-foreground">Noor</span>
-            <span className="text-[10px] md:text-xs text-muted-foreground -mt-0.5">Handicraft Academy</span>
+            <span className="text-base md:text-lg font-extrabold text-foreground">LTDEZ</span>
+            <span className="text-[10px] md:text-xs text-muted-foreground -mt-0.5">Learn Through Mistakes</span>
           </span>
         </Link>
 

@@ -39,7 +39,7 @@ export default function NoorFooter() {
       {/* Brand row */}
       <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <img src={logo} alt="Noor" className="h-9 w-auto" />
+          <img src={logo} alt="LTDEZ" className="h-9 w-auto" />
           <span className="font-extrabold">LTDEZ</span>
         </div>
         <p className="text-sm text-muted-foreground">

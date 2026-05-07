@@ -52,7 +52,7 @@ export default function NoorHero() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/5 to-transparent rounded-[3rem] blur-2xl" />
           <div className="relative bg-white border border-border rounded-[2rem] p-8 md:p-12 shadow-2xl shadow-primary/10">
-            <img src={logo} alt="Noor" className="w-full max-w-sm h-auto object-contain" />
+            <img src={logo} alt="LTDEZ" className="w-full max-w-sm h-auto object-contain" />
           </div>
         </motion.div>
       </div>

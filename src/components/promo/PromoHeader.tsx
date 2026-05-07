@@ -7,8 +7,8 @@ export default function PromoHeader() {
         <a href="#hero" className="flex items-center gap-2">
           <img src={logo} alt="LTDEZ" className="h-9 w-auto" />
           <span className="hidden sm:flex flex-col leading-tight">
-            <span className="text-sm font-extrabold">Noor</span>
-            <span className="text-[10px] text-muted-foreground -mt-0.5">Handicraft Academy</span>
+            <span className="text-sm font-extrabold">LTDEZ</span>
+            <span className="text-[10px] text-muted-foreground -mt-0.5">Learn Through Mistakes</span>
           </span>
         </a>
         <a
