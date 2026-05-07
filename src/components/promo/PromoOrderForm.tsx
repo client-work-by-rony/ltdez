@@ -17,7 +17,7 @@ export default function PromoOrderForm() {
     }
     setLoading(true);
     const msg = encodeURIComponent(
-      `নতুন অর্ডার — Noor Handicraft Promo\n\nনাম: ${form.name}\nফোন: ${form.phone}\nইমেইল: ${form.email || "-"}\nঠিকানা: ${form.address || "-"}\n\nProgram: Full Handicraft Course\nমূল্য: ৳${PRICE}\n\nPayment instruction পাঠান।`
+      `নতুন অর্ডার — LTDEZ Promo\n\nনাম: ${form.name}\nফোন: ${form.phone}\nইমেইল: ${form.email || "-"}\nঠিকানা: ${form.address || "-"}\n\nProgram: Full Handicraft Course\nমূল্য: ৳${PRICE}\n\nPayment instruction পাঠান।`
     );
     window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${msg}`, "_blank");
     setTimeout(() => setLoading(false), 1000);

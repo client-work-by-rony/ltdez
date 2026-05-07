@@ -24,7 +24,7 @@ export default function PromoHero() {
           <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-full" />
           <img
             src={promoImg}
-            alt="Noor Handicraft Course Promo"
+            alt="LTDEZ Course Promo"
             width={1024}
             height={1024}
             className="relative w-full h-auto rounded-3xl shadow-2xl shadow-primary/30"

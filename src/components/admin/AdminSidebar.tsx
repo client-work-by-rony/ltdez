@@ -1,6 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
-import noorLogo from '@/assets/noor-logo.png';
+import noorLogo from '@/assets/ltdez-logo.png';
 import {
   Sidebar,
   SidebarContent,
@@ -60,9 +60,9 @@ export function AdminSidebar() {
     <Sidebar>
       <SidebarHeader className="border-b border-sidebar-border p-4">
         <div className="flex items-center gap-2">
-          <img src={noorLogo} alt="Noor" className="h-8 w-auto" />
+          <img src={noorLogo} alt="LTDEZ" className="h-8 w-auto" />
           <div>
-            <h2 className="text-sm font-bold text-primary leading-tight">Noor Handicraft</h2>
+            <h2 className="text-sm font-bold text-primary leading-tight">LTDEZ</h2>
             <p className="text-[10px] text-muted-foreground">Admin Panel</p>
           </div>
         </div>

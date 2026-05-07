@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Noor Handicraft Academy — Light theme, Orange/Black/White */
+/* LTDEZ — Light theme, Orange/Black/White */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
 
-    /* Primary - Noor logo orange */
+    /* Primary - LTDEZ logo orange */
     --primary: 28 95% 55%;
     --primary-foreground: 0 0% 100%;
 

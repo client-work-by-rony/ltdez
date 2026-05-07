@@ -34,7 +34,7 @@ export default function PromoPricing() {
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-amber-400 text-white text-[11px] font-bold">
               <Zap className="h-3 w-3" /> MOST POPULAR
             </span>
-            <h3 className="mt-4 text-xl font-bold">Noor Handicraft — Full Program</h3>
+            <h3 className="mt-4 text-xl font-bold">LTDEZ — Full Program</h3>
 
             <div className="mt-6">
               <div className="text-muted-foreground line-through text-lg">৳ ২,৯৯০</div>

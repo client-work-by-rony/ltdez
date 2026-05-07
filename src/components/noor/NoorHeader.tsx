@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/noor-logo.png";
+import logo from "@/assets/ltdez-logo.png";
 
 const links = [
   { label: "হোম", href: "#hero" },
@@ -19,10 +19,10 @@ export default function NoorHeader() {
     <header className="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-border">
       <div className="max-w-6xl mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Noor Handicraft Academy" className="h-10 md:h-12 w-auto" />
+          <img src={logo} alt="LTDEZ" className="h-10 md:h-12 w-auto" />
           <span className="hidden sm:flex flex-col leading-tight">
-            <span className="text-base md:text-lg font-extrabold text-foreground">Noor</span>
-            <span className="text-[10px] md:text-xs text-muted-foreground -mt-0.5">Handicraft Academy</span>
+            <span className="text-base md:text-lg font-extrabold text-foreground">LTDEZ</span>
+            <span className="text-[10px] md:text-xs text-muted-foreground -mt-0.5">Learn Through Mistakes</span>
           </span>
         </Link>
 
