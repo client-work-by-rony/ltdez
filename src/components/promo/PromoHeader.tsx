@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/ltdez-logo.png";
 
 const links = [
-  { label: "হোম", href: "#hero" },
-  { label: "কোর্স", href: "#features" },
-  { label: "লাইভ প্রোগ্রাম", href: "#live" },
+  { label: "হোম", href: "/#hero", isRoute: false },
+  { label: "কোর্স", href: "/#features", isRoute: false },
+  { label: "লাইভ প্রোগ্রাম", href: "/live-program", isRoute: true },
 ];
 
 export default function PromoHeader() {
@@ -25,15 +25,17 @@ export default function PromoHeader() {
         </a>
 
         <nav className="hidden md:flex items-center gap-7">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-foreground/75 hover:text-primary transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.isRoute ? (
+              <Link key={l.href} to={l.href} className="text-sm font-medium text-foreground/75 hover:text-primary transition-colors">
+                {l.label}
+              </Link>
+            ) : (
+              <a key={l.href} href={l.href} className="text-sm font-medium text-foreground/75 hover:text-primary transition-colors">
+                {l.label}
+              </a>
+            )
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -62,16 +64,17 @@ export default function PromoHeader() {
             className="md:hidden bg-white border-t border-border overflow-hidden"
           >
             <div className="px-4 py-3 flex flex-col">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="py-3 text-sm font-medium border-b border-border"
-                >
-                  {l.label}
-                </a>
-              ))}
+              {links.map((l) =>
+                l.isRoute ? (
+                  <Link key={l.href} to={l.href} onClick={() => setOpen(false)} className="py-3 text-sm font-medium border-b border-border">
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-3 text-sm font-medium border-b border-border">
+                    {l.label}
+                  </a>
+                )
+              )}
               <Link
                 to="/auth"
                 onClick={() => setOpen(false)}

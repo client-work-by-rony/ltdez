@@ -25,7 +25,7 @@ const Index = () => {
         <PromoFeatures />
         <PromoTransformation />
         <PromoAudience />
-        <PromoLiveClass />
+        
         <PromoPricing />
         <PromoOrderForm />
         <NoorReviews />
