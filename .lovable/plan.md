@@ -1,32 +1,44 @@
-# Live Program — আলাদা Page তৈরি
+# "কোর্সে যা যা পাবেন" Section Modernization
 
-হোমপেজের সব content ঠিক রেখে **Live Program** এর জন্য আলাদা একটা page তৈরি করব যেখানে আপনি নিজে content add/edit করতে পারবেন।
+## Goal
+PromoFeatures section-এর design আরও modern, visually engaging এবং high-converting করে upgrade করা।
 
-## পরিবর্তন
+## Changes
 
-### 1. নতুন page — `src/pages/LiveProgram.tsx`
-- Route: `/live-program`
-- Header + Footer + FloatingActions (homepage এর মতই layout)
-- Content section যেখানে একটি `LIVE_PROGRAMS` array থাকবে (টপ-এ comment সহ — আপনি সহজে edit করতে পারবেন)
-- প্রতিটি program card এ থাকবে:
-  - Title, Topic
-  - Date, Time, Platform (Zoom), Seats
-  - Live countdown timer
-  - Bullet points (4টি default)
-  - "Reserve My Seat" CTA → হোমপেজের `#order` এ যাবে
-- Hero section + final CTA
+### 1. Bento-Style Grid Layout
+- Current 3-column uniform grid এর জায়গায় responsive bento-style grid (1-2-1 span pattern)
+- কিছু cards larger (md:col-span-2), কিছু standard size — visual rhythm তৈরি হবে
+- 4-column grid on large screens for better space utilization
 
-### 2. Header (`src/components/promo/PromoHeader.tsx`)
-- "লাইভ প্রোগ্রাম" link `#live` (anchor) থেকে `/live-program` (route) এ পরিবর্তন
-- Desktop + mobile dropdown — দুজায়গাতেই route-aware (React Router `<Link>`)
-- হোম/কোর্স anchor link হিসেবে থাকবে কিন্তু `/#hero` ও `/#features` format এ যাতে অন্য route থেকেও কাজ করে
+### 2. Enhanced Cards
+- প্রতিটি card-এ unique gradient top border (hover এ reveal)
+- প্রতিটি card-এ color-coded highlight badge (e.g., "30+ Days Practice", "500+ Words")
+- Larger gradient icon containers (12x12) with hover scale animation
+- Arrow indicator on hover for interactivity cue
+- Better shadows and hover lift effect
 
-### 3. Routing (`src/App.tsx`)
-- নতুন route add: `<Route path="/live-program" element={<LiveProgram />} />`
+### 3. Section Header Upgrade
+- "What's Included" badge যোগ (like Pricing section)
+- Larger gradient headline (text-5xl on desktop)
+- Subtitle text larger and more readable
+- Decorative blurred background circles for depth
 
-### 4. Homepage (`src/pages/Index.tsx`)
-- `<PromoLiveClass />` section হোমপেজ থেকে remove (কারণ এখন আলাদা page-এ যাবে)
-- বাকি সব section (Hero, Problem, Solution, Features, Transformation, Audience, Pricing, Order, Reviews, FAQ, Final CTA) অপরিবর্তিত
+### 4. Bottom Summary Card (New)
+- Full-width glow card with "Everything You Need in One Place" heading
+- Left side: CTA text + "Enroll Now" button
+- Right side: 6-item checklist with green check icons
+- Gradient border blur effect (Pricing section এর মত)
 
-## Edit করার জন্য
-`src/pages/LiveProgram.tsx` ফাইলের শুরুতে `LIVE_PROGRAMS` array — সেখানে নতুন program object copy-paste করে যত খুশি class add করতে পারবেন।
+### 5. Visual Polish
+- Background decorative blur blobs for depth
+- Better spacing (gap-4 instead of gap-5, more breathing room)
+- Consistent gradient colors matching the orange/amber brand theme
+- All animations via Framer Motion with stagger delays
+
+## Technical
+- File: `src/components/promo/PromoFeatures.tsx`
+- No new dependencies — existing Framer Motion + Lucide icons ব্যবহার
+- Lucide icons: `Check`, `ArrowRight` 추가
+
+## Preview
+Section-টি দেখতে হবে একটি premium SaaS landing page এর features grid এর মত — colorful, organized, এবং scroll করলে smooth staggered animation সহ আসবে।
