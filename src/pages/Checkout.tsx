@@ -21,10 +21,9 @@ const schema = z.object({
 });
 
 const methods = [
-  { id: "bkash", name: "bKash", color: "from-pink-500 to-pink-600", letter: "b" },
-  { id: "nagad", name: "Nagad", color: "from-orange-500 to-red-500", letter: "N" },
-  { id: "rocket", name: "Rocket", color: "from-purple-600 to-purple-700", letter: "R" },
-  { id: "card", name: "Card", color: "from-blue-600 to-indigo-600", letter: "C" },
+  { id: "bkash", name: "bKash", color: "from-pink-500 to-pink-600", letter: "b", number: "01711282515" },
+  { id: "nagad", name: "Nagad", color: "from-orange-500 to-red-500", letter: "N", number: "01711282515" },
+  { id: "rocket", name: "Rocket", color: "from-purple-600 to-purple-700", letter: "R", number: "01711282515" },
 ];
 
 export default function Checkout() {
