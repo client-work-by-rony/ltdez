@@ -3,6 +3,8 @@ import PromoHero from "@/components/promo/PromoHero";
 import PromoProblem from "@/components/promo/PromoProblem";
 import PromoSolution from "@/components/promo/PromoSolution";
 import PromoModules from "@/components/promo/PromoModules";
+import PromoCoursesShowcase from "@/components/promo/PromoCoursesShowcase";
+import PromoWhyLove from "@/components/promo/PromoWhyLove";
 import PromoFeatures from "@/components/promo/PromoFeatures";
 import PromoBonuses from "@/components/promo/PromoBonuses";
 import PromoTransformation from "@/components/promo/PromoTransformation";
@@ -23,6 +25,8 @@ const Index = () => {
         <PromoProblem />
         <PromoSolution />
         <PromoModules />
+        <PromoCoursesShowcase />
+        <PromoWhyLove />
         <PromoFeatures />
         <PromoBonuses />
         <PromoTransformation />
