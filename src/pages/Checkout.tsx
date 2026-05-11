@@ -18,6 +18,7 @@ const schema = z.object({
   phone: z.string().regex(/^01[0-9]{9}$/, "সঠিক ফোন নম্বর দিন (01XXXXXXXXX)"),
   email: z.string().trim().email("সঠিক ইমেইল দিন").max(255).optional().or(z.literal("")),
   address: z.string().trim().max(500).optional().or(z.literal("")),
+  trxId: z.string().trim().min(5, "TrxID কমপক্ষে ৫ অক্ষর").max(30, "TrxID সর্বোচ্চ ৩০ অক্ষর"),
 });
 
 const methods = [
