@@ -18,24 +18,26 @@ const schema = z.object({
   phone: z.string().regex(/^01[0-9]{9}$/, "সঠিক ফোন নম্বর দিন (01XXXXXXXXX)"),
   email: z.string().trim().email("সঠিক ইমেইল দিন").max(255).optional().or(z.literal("")),
   address: z.string().trim().max(500).optional().or(z.literal("")),
+  trxId: z.string().trim().min(5, "TrxID কমপক্ষে ৫ অক্ষর").max(30, "TrxID সর্বোচ্চ ৩০ অক্ষর"),
 });
 
 const methods = [
-  { id: "bkash", name: "bKash", color: "from-pink-500 to-pink-600", letter: "b" },
-  { id: "nagad", name: "Nagad", color: "from-orange-500 to-red-500", letter: "N" },
-  { id: "rocket", name: "Rocket", color: "from-purple-600 to-purple-700", letter: "R" },
-  { id: "card", name: "Card", color: "from-blue-600 to-indigo-600", letter: "C" },
+  { id: "bkash", name: "bKash", color: "from-pink-500 to-pink-600", letter: "b", number: "01711282515" },
+  { id: "nagad", name: "Nagad", color: "from-orange-500 to-red-500", letter: "N", number: "01711282515" },
+  { id: "rocket", name: "Rocket", color: "from-purple-600 to-purple-700", letter: "R", number: "01711282515" },
 ];
 
 export default function Checkout() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: "", phone: "", email: "", address: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", address: "", trxId: "" });
   const [method, setMethod] = useState("bkash");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     document.title = "Checkout — Fear To Fluent";
   }, []);
+
+  const selectedMethod = methods.find((m) => m.id === method)!;
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,27 +52,30 @@ export default function Checkout() {
     }
     setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke("shurjopay-initiate", {
-        body: {
-          customer_name: parsed.data.name,
-          customer_phone: parsed.data.phone,
-          customer_email: parsed.data.email || null,
-          customer_address: parsed.data.address || null,
-          amount: PRODUCT.price,
-          product_name: PRODUCT.name,
-          payment_method: method,
-        },
+      const { data: userData } = await supabase.auth.getUser();
+      const { error } = await supabase.from("payment_requests").insert({
+        user_id: userData.user?.id || null,
+        customer_name: parsed.data.name,
+        customer_email: parsed.data.email || null,
+        customer_address: parsed.data.address || null,
+        phone_number: parsed.data.phone,
+        transaction_id: parsed.data.trxId,
+        amount: PRODUCT.price,
+        payment_method: method,
+        product_name: PRODUCT.name,
+        purchase_type: "course",
+        status: "pending",
       });
       if (error) throw error;
-      if (data?.checkout_url) {
-        window.location.href = data.checkout_url;
-      } else {
-        throw new Error(data?.error || "Payment gateway error");
-      }
+      toast({
+        title: "✅ অর্ডার সাবমিট হয়েছে",
+        description: "Admin verify করার পর আপনাকে এনরোল করা হবে।",
+      });
+      navigate("/thank-you");
     } catch (err: any) {
       toast({
-        title: "Payment শুরু করা যায়নি",
-        description: err?.message || "আবার চেষ্টা করুন বা admin কে জানান।",
+        title: "সাবমিট করা যায়নি",
+        description: err?.message || "আবার চেষ্টা করুন।",
         variant: "destructive",
       });
       setLoading(false);
@@ -173,7 +178,7 @@ export default function Checkout() {
 
               <div className="pt-2">
                 <h3 className="text-base font-bold mb-3">Payment Method</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="grid grid-cols-3 gap-3">
                   {methods.map((m) => (
                     <button
                       type="button"
@@ -195,6 +200,23 @@ export default function Checkout() {
                 </div>
               </div>
 
+              <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-4 space-y-2">
+                <p className="text-xs font-bold text-primary uppercase tracking-wide">পেমেন্ট নির্দেশনা</p>
+                <p className="text-sm">
+                  অনুগ্রহ করে <strong>{selectedMethod.name}</strong> এ <strong>৳{PRODUCT.price}</strong> পাঠান এই নম্বরে — <span className="font-mono font-bold text-primary text-base select-all">{selectedMethod.number}</span> (Send Money)।
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  পাঠানোর পর প্রাপ্ত <strong>Transaction ID (TrxID)</strong> নিচে লিখে সাবমিট করুন।
+                </p>
+              </div>
+
+              <Field
+                label={`${selectedMethod.name} Transaction ID (TrxID) *`}
+                value={form.trxId}
+                onChange={(v) => setForm({ ...form, trxId: v })}
+                placeholder="যেমন: 9A8B7C6D5E"
+              />
+
               <div className="border-t border-border pt-5 space-y-2">
                 <Row label="Subtotal" value={`৳${PRODUCT.oldPrice}`} muted />
                 <Row label="Discount" value={`- ৳${PRODUCT.oldPrice - PRODUCT.price}`} muted accent="text-green-600" />
@@ -207,14 +229,14 @@ export default function Checkout() {
                 className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary via-orange-500 to-amber-500 text-primary-foreground font-bold text-lg shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition disabled:opacity-60"
               >
                 {loading ? (
-                  <><Loader2 className="h-5 w-5 animate-spin" /> Processing...</>
+                  <><Loader2 className="h-5 w-5 animate-spin" /> Submitting...</>
                 ) : (
-                  <><Lock className="h-5 w-5" /> Pay Securely ৳{PRODUCT.price}</>
+                  <><Lock className="h-5 w-5" /> অর্ডার সাবমিট করুন ৳{PRODUCT.price}</>
                 )}
               </button>
 
               <p className="text-[11px] text-center text-muted-foreground flex items-center justify-center gap-1.5">
-                <ShieldCheck className="h-3 w-3" /> 256-bit SSL encrypted • Powered by ShurjoPay
+                <ShieldCheck className="h-3 w-3" /> Admin verify করার পর আপনাকে instant access দেওয়া হবে
               </p>
             </form>
           </motion.section>
