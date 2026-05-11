@@ -29,13 +29,15 @@ const methods = [
 
 export default function Checkout() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: "", phone: "", email: "", address: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", address: "", trxId: "" });
   const [method, setMethod] = useState("bkash");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     document.title = "Checkout — Fear To Fluent";
   }, []);
+
+  const selectedMethod = methods.find((m) => m.id === method)!;
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,27 +52,30 @@ export default function Checkout() {
     }
     setLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke("shurjopay-initiate", {
-        body: {
-          customer_name: parsed.data.name,
-          customer_phone: parsed.data.phone,
-          customer_email: parsed.data.email || null,
-          customer_address: parsed.data.address || null,
-          amount: PRODUCT.price,
-          product_name: PRODUCT.name,
-          payment_method: method,
-        },
+      const { data: userData } = await supabase.auth.getUser();
+      const { error } = await supabase.from("payment_requests").insert({
+        user_id: userData.user?.id || null,
+        customer_name: parsed.data.name,
+        customer_email: parsed.data.email || null,
+        customer_address: parsed.data.address || null,
+        phone_number: parsed.data.phone,
+        transaction_id: parsed.data.trxId,
+        amount: PRODUCT.price,
+        payment_method: method,
+        product_name: PRODUCT.name,
+        purchase_type: "course",
+        status: "pending",
       });
       if (error) throw error;
-      if (data?.checkout_url) {
-        window.location.href = data.checkout_url;
-      } else {
-        throw new Error(data?.error || "Payment gateway error");
-      }
+      toast({
+        title: "✅ অর্ডার সাবমিট হয়েছে",
+        description: "Admin verify করার পর আপনাকে এনরোল করা হবে।",
+      });
+      navigate("/thank-you");
     } catch (err: any) {
       toast({
-        title: "Payment শুরু করা যায়নি",
-        description: err?.message || "আবার চেষ্টা করুন বা admin কে জানান।",
+        title: "সাবমিট করা যায়নি",
+        description: err?.message || "আবার চেষ্টা করুন।",
         variant: "destructive",
       });
       setLoading(false);
