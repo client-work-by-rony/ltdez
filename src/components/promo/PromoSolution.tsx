@@ -43,7 +43,7 @@ export default function PromoSolution() {
 
           <h2 className="mt-6 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
             <span className="bg-gradient-to-r from-primary via-orange-500 to-amber-500 bg-clip-text text-transparent">
-              Fear To Fluent
+              SPOKEN MASTERY
             </span>
             <span className="text-foreground/80 mx-3">—</span>
             <span className="text-foreground">সম্পূর্ণ Solution</span>

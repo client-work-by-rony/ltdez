@@ -12,7 +12,7 @@ export default function PromoHero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-border shadow-sm text-xs font-semibold mb-6"
         >
           <Sparkles className="h-3.5 w-3.5 text-primary" />
-          ১০০০+ শিক্ষার্থী ইংরেজি বলা শুরু করেছেন
+          8 Modules • 60 Hours Practice • VIP Mentorship
         </motion.div>
 
         <motion.div
@@ -37,20 +37,29 @@ export default function PromoHero() {
           transition={{ delay: 0.2 }}
           className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight"
         >
-          Speak English{" "}
-          <span className="bg-gradient-to-r from-primary to-amber-500 bg-clip-text text-transparent">
-            Confidently
-          </span>{" "}
-          — Even If You're Starting From Zero
+          <span className="bg-gradient-to-r from-primary via-orange-500 to-amber-500 bg-clip-text text-transparent">
+            SPOKEN MASTERY
+          </span>
+          <br />
+          Complete English Fluency Transformation
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto"
+          transition={{ delay: 0.25 }}
+          className="mt-3 text-base md:text-lg font-semibold text-foreground/80"
         >
-          Bangla Friendly Step-by-Step English Speaking Fluency Program — শূন্য থেকে শুরু করে fluent speaker হওয়ার complete roadmap, live practice আর daily support সহ।
+          From Fear & Hesitation → To Confident English Speaking
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mt-4 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto"
+        >
+          বাংলা ভাষাভাষীদের জন্য তৈরি একটি Complete Practical English Speaking System — যেখানে আপনি শুধু English শিখবেন না, বরং Real Life এ Confidently কথা বলা শিখবেন।
         </motion.p>
 
         <motion.div
@@ -63,7 +72,7 @@ export default function PromoHero() {
             href="/checkout"
             className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-gradient-to-r from-primary to-amber-500 text-primary-foreground font-bold text-base shadow-xl shadow-primary/30 hover:scale-[1.02] transition-transform"
           >
-            Start Speaking Today <ArrowRight className="h-5 w-5" />
+            Join SPOKEN MASTERY <ArrowRight className="h-5 w-5" />
           </a>
           <a
             href="#features"
