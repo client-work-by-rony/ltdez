@@ -178,7 +178,7 @@ export default function Checkout() {
 
               <div className="pt-2">
                 <h3 className="text-base font-bold mb-3">Payment Method</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="grid grid-cols-3 gap-3">
                   {methods.map((m) => (
                     <button
                       type="button"
@@ -200,6 +200,23 @@ export default function Checkout() {
                 </div>
               </div>
 
+              <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-4 space-y-2">
+                <p className="text-xs font-bold text-primary uppercase tracking-wide">পেমেন্ট নির্দেশনা</p>
+                <p className="text-sm">
+                  অনুগ্রহ করে <strong>{selectedMethod.name}</strong> এ <strong>৳{PRODUCT.price}</strong> পাঠান এই নম্বরে — <span className="font-mono font-bold text-primary text-base select-all">{selectedMethod.number}</span> (Send Money)।
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  পাঠানোর পর প্রাপ্ত <strong>Transaction ID (TrxID)</strong> নিচে লিখে সাবমিট করুন।
+                </p>
+              </div>
+
+              <Field
+                label={`${selectedMethod.name} Transaction ID (TrxID) *`}
+                value={form.trxId}
+                onChange={(v) => setForm({ ...form, trxId: v })}
+                placeholder="যেমন: 9A8B7C6D5E"
+              />
+
               <div className="border-t border-border pt-5 space-y-2">
                 <Row label="Subtotal" value={`৳${PRODUCT.oldPrice}`} muted />
                 <Row label="Discount" value={`- ৳${PRODUCT.oldPrice - PRODUCT.price}`} muted accent="text-green-600" />
@@ -212,14 +229,14 @@ export default function Checkout() {
                 className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary via-orange-500 to-amber-500 text-primary-foreground font-bold text-lg shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition disabled:opacity-60"
               >
                 {loading ? (
-                  <><Loader2 className="h-5 w-5 animate-spin" /> Processing...</>
+                  <><Loader2 className="h-5 w-5 animate-spin" /> Submitting...</>
                 ) : (
-                  <><Lock className="h-5 w-5" /> Pay Securely ৳{PRODUCT.price}</>
+                  <><Lock className="h-5 w-5" /> অর্ডার সাবমিট করুন ৳{PRODUCT.price}</>
                 )}
               </button>
 
               <p className="text-[11px] text-center text-muted-foreground flex items-center justify-center gap-1.5">
-                <ShieldCheck className="h-3 w-3" /> 256-bit SSL encrypted • Powered by ShurjoPay
+                <ShieldCheck className="h-3 w-3" /> Admin verify করার পর আপনাকে instant access দেওয়া হবে
               </p>
             </form>
           </motion.section>
